@@ -1,15 +1,22 @@
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.util.Objects;
+import javax.imageio.ImageIO;
 
-public class Main extends JFrame{
-    public Main(){
-        setTitle("Road Traffic");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1280,1024);
-        setLocationRelativeTo(null);
-        setVisible(true);
-    }
+
+public class Main {
+    static JFrame frame = new JFrame("Road Traffic");
+
     public static void main(String[] args) {
-       new Main();
+
+        frame.setSize(1280, 1024);
+        frame.setResizable(false);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.add( new Background());
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
     }
 }
 
