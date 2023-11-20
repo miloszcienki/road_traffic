@@ -20,12 +20,16 @@ public class Background extends JPanel {
     }
 
     public void paint(Graphics g){
-        //g.setColor(Color.BLACK);
-        //g.fillRect(0,0,1280,1024);
-        super.paint(g);
+        super.paintComponent (g);
         Graphics2D g2d= (Graphics2D) g;
-        g2d.drawImage(backgroundpic,0,0,null);
-
+        g2d.setColor(new Color(0,153,51));
+        g2d.fillRect(0,0,200,1024);
+        g2d.fillRect(1080,0,200,1024);
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(200,0,880,1024);
         g2d.dispose();
+
     }
+
+
 }

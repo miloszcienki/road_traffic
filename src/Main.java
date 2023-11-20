@@ -14,7 +14,7 @@ public class Main {
         frame.setSize(1280, 1024);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.add( new Background());
+        frame.add( new Game());
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
     }
