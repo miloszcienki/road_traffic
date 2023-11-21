@@ -12,6 +12,7 @@ public class Game extends JPanel {
         background = new Background();
     }
 
+
     public void paintComponent (Graphics g){
             background.paint(g);
 
