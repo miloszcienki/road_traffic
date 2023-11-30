@@ -1,7 +1,9 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Game extends JFrame implements Runnable {
-    Background background;
+
+    DrawAndUpdate drawAndUpdate;
     public Game() {
         this.setSize(1280, 1024);
         this.setResizable(false);
@@ -9,8 +11,9 @@ public class Game extends JFrame implements Runnable {
         this.setLayout(null);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        background = new Background();
-        this.add(background);
+        drawAndUpdate = new DrawAndUpdate();
+        this.add(drawAndUpdate);
+
     }
 
     public void run(){
@@ -22,6 +25,8 @@ public class Game extends JFrame implements Runnable {
         long timer = 0;
         int drawCount = 0;
 
+
+
         while (true) {
             currentTime = System.nanoTime();
             delta += (currentTime - lastTime) / drawInterval;
@@ -29,8 +34,8 @@ public class Game extends JFrame implements Runnable {
             lastTime = currentTime;
             if(delta>-1){
                 //update();//update klawiszy
-                background.move_road_lanes();
-                background.repaint();
+                drawAndUpdate.update_game();
+                drawAndUpdate.repaint();
                 delta--;
                 drawCount++;
             }
@@ -43,11 +48,10 @@ public class Game extends JFrame implements Runnable {
     }
 
 
-    public void update_game()
 
-    {
-        //System.out.println("update");
-    }
+
+
+
 }
 
 
