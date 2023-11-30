@@ -25,22 +25,23 @@ public class Car {
     public void paintcar(Graphics2D g2d) {
 
         g2d.drawImage(carpic, x, y,256,256, null);
+        //System.out.println("X: " +x+ " Y: "+y);
         //g2d.dispose();
 
     }
 
     public void updatecar(KeyHandler keyHandler){
 
-        if(keyHandler.upPressed== true){
+        if(keyHandler.upPressed){
             if(y>0)y-=speed;
         }
-        if(keyHandler.downPressed==true){
+        if(keyHandler.downPressed){
             if(y<768)y+=speed;
         }
-        if(keyHandler.leftPressed==true){
+        if(keyHandler.leftPressed){
             if(x>128)x-=speed;
         }
-        if(keyHandler.rightPressed==true){
+        if(keyHandler.rightPressed){
             if(x<894)x+=speed;
         }
     }
