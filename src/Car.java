@@ -7,8 +7,10 @@ import javax.swing.*;
 
 public class Car {
     public BufferedImage carpic;
+    public int x=512,y=512,speed=4; //pierwotna pozycja samochodu
 
     public Car(){
+
         //this.setFocusable(true);
         //this.requestFocusInWindow();
         //this.setSize(1280, 1024);
@@ -22,9 +24,25 @@ public class Car {
 
     public void paintcar(Graphics2D g2d) {
 
-        g2d.drawImage(carpic, 512, 512,256,256, null);
+        g2d.drawImage(carpic, x, y,256,256, null);
         //g2d.dispose();
-        System.out.println("draw car");
+
+    }
+
+    public void updatecar(KeyHandler keyHandler){
+
+        if(keyHandler.upPressed== true){
+            if(y>0)y-=speed;
+        }
+        if(keyHandler.downPressed==true){
+            if(y<768)y+=speed;
+        }
+        if(keyHandler.leftPressed==true){
+            if(x>128)x-=speed;
+        }
+        if(keyHandler.rightPressed==true){
+            if(x<894)x+=speed;
+        }
     }
 
 }

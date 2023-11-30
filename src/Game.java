@@ -4,6 +4,7 @@ import java.awt.*;
 public class Game extends JFrame implements Runnable {
 
     DrawAndUpdate drawAndUpdate;
+    KeyHandler keyHandler = new KeyHandler();
     public Game() {
         this.setSize(1280, 1024);
         this.setResizable(false);
@@ -11,6 +12,8 @@ public class Game extends JFrame implements Runnable {
         this.setLayout(null);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        this.setFocusable(true);
+        this.addKeyListener(keyHandler);
         drawAndUpdate = new DrawAndUpdate();
         this.add(drawAndUpdate);
 
@@ -34,7 +37,7 @@ public class Game extends JFrame implements Runnable {
             lastTime = currentTime;
             if(delta>-1){
                 //update();//update klawiszy
-                drawAndUpdate.update_game();
+                drawAndUpdate.update_game(keyHandler);
                 drawAndUpdate.repaint();
                 delta--;
                 drawCount++;
