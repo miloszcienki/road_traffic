@@ -16,22 +16,17 @@ public Background(){
     }
 
     public void paintback(Graphics2D g2d){
-
-        g2d.setColor(new Color(0,153,51));
-        g2d.fillRect(0,0,205,1024); // lewa krawędź 200px
-        g2d.fillRect(1075,0,205,1024);// prawa krawędź 200px
-        g2d.setColor(Color.BLACK);
-        g2d.fillRect(205,0,870,1024);// srodek 880 px
-        g2d.setColor(Color.WHITE);
-        for(int i=485;i<880;i+=280) {//pasy
+        g2d.setColor(new Color(0,153,51)); // zmiana koloru na zielony
+        g2d.fillRect(0,0,205,1024); // lewy pas zieleni 205px
+        g2d.fillRect(1075,0,205,1024);// praw lewy pas zieleni 205px
+        g2d.setColor(Color.BLACK); // zmiana koloru na czarny
+        g2d.fillRect(205,0,870,1024);// pas jezdni 870 px
+        g2d.setColor(Color.WHITE);// zmiana koloru na biały
+        for(int i=485;i<880;i+=280) {// pętla rysująca linie oddzielające pasy ruchy
             for(int j=0;j<=3;j++) {
                 g2d.fillRect(i,lenght_lanes[j] , 20 , 226);
-                //System.out.println(lenght_lanes[j]);
             }
         }
-        //System.out.println("4");
-        //g2d.dispose();
-
     }
 
     public void move_road_lanes(){

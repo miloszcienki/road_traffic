@@ -17,7 +17,7 @@ public class Car {
         //this.setLocation(0,0);
         //this.setBackground(new Color(0,0,0,0));
         try{
-            carpic= ImageIO.read(getClass().getResourceAsStream("carpictest.png"));
+            carpic= ImageIO.read(getClass().getResourceAsStream("cartopview.png"));
         } catch(IOException e){e.printStackTrace();}
     }
 

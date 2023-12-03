@@ -17,7 +17,7 @@ public class CarBot {
         //this.setLocation(0,0);
         //this.setBackground(new Color(0,0,0,0));
         try{
-            carpic= ImageIO.read(getClass().getResourceAsStream("policecar.png"));
+            carpic= ImageIO.read(getClass().getResourceAsStream("cartopviewbot.png"));
         } catch(IOException e){e.printStackTrace();}
     }
 
