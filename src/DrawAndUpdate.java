@@ -1,15 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util.Random;
+
 
 public class DrawAndUpdate extends JPanel {
     Background background;
     Car car;
     CarBot carBot;
-    int number;
-    long currentTime;
-    long lastTime;
-    Random rand = new Random();
+    CollisionDetector collisionDetector;
+    int numberLife =2;
+
+
+
+
 
     public DrawAndUpdate(){
 
@@ -23,6 +25,7 @@ public class DrawAndUpdate extends JPanel {
         background = new Background();
         car = new Car();
         carBot = new CarBot();
+        collisionDetector = new CollisionDetector();
     }
     @Override
     public void paintComponent(Graphics g){
@@ -38,14 +41,17 @@ public class DrawAndUpdate extends JPanel {
     public void update_game(KeyHandler keyHandler)
 
     {
-        currentTime=System.currentTimeMillis();
-        if(currentTime-lastTime>3500){
-            lastTime=System.currentTimeMillis();
-             number = rand.nextInt(3);
-        }
+
         background.move_road_lanes();
         car.updatecar(keyHandler);
-        carBot.updatebot(number);
+        carBot.updatebot();
+        collisionDetector.updateCarPosition(car.x, car.y,256,256);
+        collisionDetector.updateBotPosition(carBot.getX(), carBot.getY(),256,256);
+        if(collisionDetector.checkCollision()){
+            background.life[numberLife]=false;
+            numberLife--;
+        }
+
         //System.out.println("update");
     }
 }

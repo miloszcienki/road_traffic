@@ -17,7 +17,7 @@ public class Car {
         //this.setLocation(0,0);
         //this.setBackground(new Color(0,0,0,0));
         try{
-            carpic= ImageIO.read(getClass().getResourceAsStream("carpictest.png"));
+            carpic= ImageIO.read(getClass().getResourceAsStream("cartopview.png"));
         } catch(IOException e){e.printStackTrace();}
     }
 
@@ -39,11 +39,12 @@ public class Car {
             if(y<768)y+=speed;
         }
         if(keyHandler.leftPressed){
-            if(x>128)x-=speed;
+            if(x>0)x-=speed;
         }
         if(keyHandler.rightPressed){
-            if(x<894)x+=speed;
+            if(x<1024)x+=speed;
         }
     }
+
 
 }

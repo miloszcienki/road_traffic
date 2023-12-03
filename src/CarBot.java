@@ -2,12 +2,15 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Random;
 
 public class CarBot {
     public BufferedImage carpic;
     public int speed=4; //pierwotna pozycja samochodu
+    private int number_car=0;
     public int[] x={232,516,816};
     public int[] y={-256,-256,-256};
+    private Random rand = new Random();
 
     public CarBot(){
 
@@ -17,7 +20,7 @@ public class CarBot {
         //this.setLocation(0,0);
         //this.setBackground(new Color(0,0,0,0));
         try{
-            carpic= ImageIO.read(getClass().getResourceAsStream("policecar.png"));
+            carpic= ImageIO.read(getClass().getResourceAsStream("cartopviewbot.png"));
         } catch(IOException e){e.printStackTrace();}
     }
 
@@ -28,12 +31,19 @@ public class CarBot {
 
     }
 
-    public void updatebot(int number){
-        if(y[number]<1300) y[number]+=2;
-        else y[number]=-256;
+    public void updatebot(){
+        if(y[number_car]<1300) y[number_car]+=2;
+        else {
+            y[number_car] = -256;
+            number_car = rand.nextInt(3);
+        }
 
     }
 
-
-
+    public int getX() {
+        return x[number_car];
+    }
+    public int getY() {
+        return y[number_car];
+    }
 }
