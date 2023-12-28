@@ -48,7 +48,7 @@ public class DrawAndUpdate extends JPanel {
         collisionDetector.updateCarPosition(car.x, car.y,256,256);
         collisionDetector.updateBotPosition(carBot.getX(), carBot.getY(),256,256);
         if(collisionDetector.checkCollision()){
-            background.life[numberLife]=false;
+            background.lifes[numberLife]=false;
             numberLife--;
         }
 

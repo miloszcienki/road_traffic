@@ -1,18 +1,23 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public  class Background {
 
-    //public BufferedImage backgroundpic;
+    public BufferedImage heart,white_heart;
     int[] lenght_lanes={0,256,512,768};
-
+    boolean[] lifes={true,true,true};
 
 public Background(){
 
-        /*try{
-            backgroundpic= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("backpic.png")));
+        try{
+            heart= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("heart.png")));
+            white_heart= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("white_heart.png")));
         } catch(IOException e){e.printStackTrace();}
-        */
+
     }
 
     public void paintback(Graphics2D g2d){
@@ -23,6 +28,10 @@ public Background(){
         g2d.setColor(Color.BLACK);
         g2d.fillRect(205,0,870,1024);// srodek 880 px
         g2d.setColor(Color.WHITE);
+        for(int j=0;j<=120;j+=60){
+            if(lifes[j/60])g2d.drawImage(heart,1080+j,20,48,41,null);
+            else g2d.drawImage(white_heart,1080+j,20,48,41,null);
+        }
         for(int i=485;i<880;i+=280) {//pasy
             for(int j=0;j<=3;j++) {
                 g2d.fillRect(i,lenght_lanes[j] , 20 , 226);
