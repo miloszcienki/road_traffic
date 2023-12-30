@@ -6,6 +6,7 @@ public class Game extends JFrame implements Runnable {
     DrawAndUpdate drawAndUpdate;
     KeyHandler keyHandler = new KeyHandler();
 
+
     public Game() {
         this.setSize(1280, 1024);
         this.setResizable(false);
@@ -16,6 +17,7 @@ public class Game extends JFrame implements Runnable {
         this.setFocusable(true);
 
         this.addKeyListener(keyHandler);
+
         drawAndUpdate = new DrawAndUpdate();
         this.add(drawAndUpdate);
 

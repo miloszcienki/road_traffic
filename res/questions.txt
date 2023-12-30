@@ -1,0 +1,60 @@
+Pytanie: Jakie jest przeznaczenie skrzyni biegów w samochodzie?
+Transport bagażu
+Regulacja klimatyzacji
+Sterowanie napędem
+Ogrzewanie siedzeń
+3
+Pytanie: Co oznacza skrót ABS w kontekście motoryzacji?
+Awaryjne Bezpieczeństwo Samochodu
+Anti-lock Braking System
+Automatyczne Bezpieczne Skręcanie
+Aktywna Blokada Skrzyni biegów
+2
+Pytanie: Jaka funkcję pełni olej silnikowy w pojeździe?
+Nawilżanie opon
+Smarowanie silnika
+Oczyszczanie powietrza
+Barwienie karoserii
+2
+Pytanie: Co oznacza skrót RPM w kontekście motoryzacji?
+Rezerwa Paliwa Maksymalna
+Obroty na minutę
+Radiowe Przekazywanie Muzyki
+Ręczne Pompowanie Mechanika
+2
+Pytanie: Jaki gaz odpowiada za większość spalin w spalinowym silniku wewnętrznego spalania?
+Azot
+Tlenek węgla
+Dwutlenek węgla
+Wodór
+3
+Pytanie: Co oznacza skrót SUV w kontekście samochodów?
+Szybki Urok Vana
+Sportowy Uprawniony Van
+Samochód Użytkowy
+Samochód terenowy
+4
+Pytanie: Jakie są główne składniki paliwa benzynowego?
+Wodór i hel
+Metan i propan
+Węglowodory
+Azot i tlen
+3
+Pytanie: Co to jest napęd AWD w samochodach?
+Automatyczna Wentylacja Dachowa
+Aktywny Wyłącznik Drzwi
+Wszechkierunkowy Napęd
+Wszystkie Koła Napędzane
+4
+Pytanie: Jakie jest przeznaczenie alternatora w samochodzie?
+Oświetlenie wnętrza
+Ładowanie akumulatora
+Nawilżanie powietrza
+Kontrola temperatury silnika
+2
+Pytanie: Co oznacza skrót GPS w kontekście nawigacji samochodowej?
+Globalne Położenie Satelitarne
+Generalna Prędkość Samochodu
+Gry Planszowe dla Samochodów
+Głosowe Przewodzenie w Słuchawkach
+1
