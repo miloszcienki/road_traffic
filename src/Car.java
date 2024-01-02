@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class Car {
     public BufferedImage carpic;
-    public int x=512,y=512,speed=4; //pierwotna pozycja samochodu
+    public int x=582,y=512,speed=4; //pierwotna pozycja samochodu
 
     public Car(){
 
@@ -24,7 +24,7 @@ public class Car {
 
     public void paintcar(Graphics2D g2d) {
 
-        g2d.drawImage(carpic, x, y,256,256, null);
+        g2d.drawImage(carpic, x, y,100,256, null);
         //System.out.println("X: " +x+ " Y: "+y);
         //g2d.dispose();
 
@@ -44,6 +44,11 @@ public class Car {
         if(keyHandler.rightPressed){
             if(x<1024)x+=speed;
         }
+    }
+
+    public void carDeafult(){
+        x=582;
+        y=512;
     }
 
 

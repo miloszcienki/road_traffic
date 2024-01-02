@@ -11,6 +11,8 @@ public class Quiz {
 
     int lineNumberToRead=1;
     private Random rand = new Random();
+
+    int answer=-1;
     public void paintQuiz(Graphics2D g2d){
 
         //g2d.setColor(new Color(253, 5, 0,160));
@@ -33,10 +35,10 @@ public class Quiz {
         }
     }
 
-    public void updateQuiz(MouseHandler mouseHandler){
+    public void updateQuiz(MouseMotionHandler mouseMotionHandler){
         for(int i=0;i<=3;i++){
 
-            hover[i]= mouseHandler.position == i;
+            hover[i]= mouseMotionHandler.position == i;
         }
     }
 
@@ -59,12 +61,26 @@ public class Quiz {
             // Sprawdzamy, czy aktualna linia jest tą, którą chcemy odczytać
             if (currentLineNumber == lineNumberToRead) {
                 int j=0;//zmienna pomocnicza do iterowania tablicy
-                for(int i=lineNumberToRead;i<=(lineNumberToRead+5);i++) {
+                for(int i=lineNumberToRead;i<=(lineNumberToRead+4);i++) {
 
                     //System.out.println("Linia " + i + ": " + line);
-                    lines[j]=line;
-                    line = br.readLine();
-                    j++;
+
+                        lines[j] = line;
+                        line = br.readLine();
+                        j++;
+
+                        //line = br.readLine();
+                        if((lineNumberToRead+4)==i){
+                            answer= Integer.parseInt(line);
+                            try {
+                                answer= Integer.parseInt(line);
+                            } catch (NumberFormatException e) {
+                                System.out.println("Invalid integer input");
+                            }
+                        }
+
+
+
                 }
                 break; // Przerywamy pętlę po odczytaniu żądanej linii
             }
@@ -80,6 +96,14 @@ public class Quiz {
 
     public void nextquest(boolean flag){
         if(flag)lineNumberToRead=1+(6*rand.nextInt(9));
+    }
+
+    public boolean  checkAnswer(MouseHandler mouseHandler){
+        if (answer== mouseHandler.position) {
+            return true;
+
+        }
+            return false;
     }
 
 }
