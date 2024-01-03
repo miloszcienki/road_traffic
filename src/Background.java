@@ -28,8 +28,8 @@ public Background(){
         g2d.fillRect(1075,0,205,1024);// prawa krawędź 200px
         g2d.setColor(Color.BLACK);
         g2d.fillRect(205,0,870,1024);// srodek 880 px
-        g2d.setFont(new Font("Courier New", Font.PLAIN, 30));
-        g2d.drawString("Score: " + (int) score,20,20);//punkty
+        g2d.setFont(new Font("Courier New", Font.PLAIN, 26));
+        g2d.drawString("Punkty:" + (int) score,5,20);//punkty
         g2d.setColor(Color.WHITE);
         for(int j=0;j<=120;j+=60){
             if(lifes[j/60])g2d.drawImage(heart,1080+j,20,48,41,null);

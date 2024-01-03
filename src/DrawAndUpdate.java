@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 
 
 public class DrawAndUpdate extends JPanel {
@@ -8,10 +9,12 @@ public class DrawAndUpdate extends JPanel {
     CarBot carBot;
     Quiz quiz;
     CollisionDetector collisionDetector;
+    Pause pause;
     int numberLife =2;
     MouseMotionHandler mouseMotionHandler = new MouseMotionHandler();
     MouseHandler mouseHandler = new MouseHandler();
-    boolean flag=true;//czy losowanć
+    boolean flag=true;//czy losować
+    boolean pauseFlag=false;
 
 
 
@@ -32,15 +35,19 @@ public class DrawAndUpdate extends JPanel {
         carBot = new CarBot();
         collisionDetector = new CollisionDetector();
         quiz = new Quiz();
+        pause = new Pause();
     }
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        background.paintback(g2d);
-        car.paintcar(g2d);
-        carBot.paintbot(g2d);
-        if(!background.lifes[0]) quiz.paintQuiz(g2d);
+        if(background.lifes[0] && !pauseFlag) {
+            background.paintback(g2d);
+            car.paintcar(g2d);
+            carBot.paintbot(g2d);
+        }
+        else if (!background.lifes[0] && !pauseFlag) quiz.paintQuiz(g2d);
+        else pause.paintPause(g2d);
         g2d.dispose();
     }
 
@@ -48,7 +55,8 @@ public class DrawAndUpdate extends JPanel {
 
     {
 
-        if(background.lifes[0]) {
+        if(background.lifes[0] && !keyHandler.escapePressed) {
+            pauseFlag=false;
             background.move_road_lanes();
             car.updatecar(keyHandler);
             carBot.updatebot();
@@ -60,7 +68,8 @@ public class DrawAndUpdate extends JPanel {
 
             }
 
-        }else {
+        }else if (!background.lifes[0] && !keyHandler.escapePressed) {
+            pauseFlag=false;
             quiz.updateQuiz(mouseMotionHandler);
             quiz.drawNewQuestion();
             quiz.nextquest(flag);
@@ -73,7 +82,16 @@ public class DrawAndUpdate extends JPanel {
                 carBot.carBotDeafult();
 
             }
+            else{
+
+                Arrays.fill(background.lifes, true);
+                mouseHandler.position=-1;
+                flag=true;
+                car.carDeafult();
+                carBot.carBotDeafult();
+            }
         }
+        else pauseFlag=true;
 
         //System.out.println("update");
     }

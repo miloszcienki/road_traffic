@@ -35,6 +35,27 @@ public class Quiz {
         }
     }
 
+    public void paintAnswer(Graphics2D g2d){
+
+        //g2d.setColor(new Color(253, 5, 0,160));
+        //g2d.fillRect(320,256,640,512); // okno quizu
+        g2d.setColor(Color.BLACK);
+        g2d.fillRect(0,0,1280,1024); // okno quizu
+        g2d.setColor(Color.WHITE);
+        g2d.setFont(new Font("Courier New", Font.PLAIN, 30));
+        g2d.drawString(lines[0],0,200);
+        for(int i=1;i<=4;i++) g2d.drawString(lines[i],400,(350+70*(i-1)));
+
+        for(int i =0;i<=3;i++){
+
+
+            if(hover[i]){
+                g2d.setColor(Color.CYAN);
+                g2d.fillRect(360,330+(70*i),20,20);
+
+            }
+        }
+    }
     public void updateQuiz(MouseMotionHandler mouseMotionHandler){
         for(int i=0;i<=3;i++){
 
@@ -99,11 +120,7 @@ public class Quiz {
     }
 
     public boolean  checkAnswer(MouseHandler mouseHandler){
-        if (answer== mouseHandler.position) {
-            return true;
-
-        }
-            return false;
+        return answer == mouseHandler.position;
     }
 
 }
