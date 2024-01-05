@@ -11,11 +11,7 @@ public class Car {
 
     public Car(){
 
-        //this.setFocusable(true);
-        //this.requestFocusInWindow();
-        //this.setSize(1280, 1024);
-        //this.setLocation(0,0);
-        //this.setBackground(new Color(0,0,0,0));
+
         try{
             carpic= ImageIO.read(getClass().getResourceAsStream("cartopview.png"));
         } catch(IOException e){e.printStackTrace();}
@@ -25,8 +21,7 @@ public class Car {
     public void paintcar(Graphics2D g2d) {
 
         g2d.drawImage(carpic, x, y,100,256, null);
-        //System.out.println("X: " +x+ " Y: "+y);
-        //g2d.dispose();
+
 
     }
 

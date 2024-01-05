@@ -34,7 +34,7 @@ public class CarBot {
     }
 
     public void updatebot(){
-        if(y[number_car]<1300) y[number_car]+=2;
+        if(y[number_car]<1300) y[number_car]+=8;
         else {
             y[number_car] = -256;
             number_car = rand.nextInt(3);

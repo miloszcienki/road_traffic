@@ -10,11 +10,13 @@ public class DrawAndUpdate extends JPanel {
     Quiz quiz;
     CollisionDetector collisionDetector;
     Pause pause;
+    Menu menu;
     int numberLife =2;
     MouseMotionHandler mouseMotionHandler = new MouseMotionHandler();
     MouseHandler mouseHandler = new MouseHandler();
     boolean flag=true;//czy losować
     boolean pauseFlag=false;
+    boolean menuFlag=false;
 
 
 
@@ -36,27 +38,31 @@ public class DrawAndUpdate extends JPanel {
         collisionDetector = new CollisionDetector();
         quiz = new Quiz();
         pause = new Pause();
+        menu = new Menu();
     }
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        if(background.lifes[0] && !pauseFlag) {
+        if(background.lifes[0] && !pauseFlag && !menuFlag) {
             background.paintback(g2d);
             car.paintcar(g2d);
             carBot.paintbot(g2d);
         }
-        else if (!background.lifes[0] && !pauseFlag) quiz.paintQuiz(g2d);
-        else pause.paintPause(g2d);
+        else if (!background.lifes[0] && !pauseFlag && !menuFlag) quiz.paintQuiz(g2d);
+        else if(pauseFlag) pause.paintPause(g2d);
+        else if(menuFlag) menu.paintMenu(g2d);
+
         g2d.dispose();
     }
 
     public void update_game(KeyHandler keyHandler)
 
     {
+        pauseFlag=keyHandler.pPressed;
+        menuFlag=keyHandler.escapePressed;
+        if(background.lifes[0] && !pauseFlag && !menuFlag) {
 
-        if(background.lifes[0] && !keyHandler.escapePressed) {
-            pauseFlag=false;
             background.move_road_lanes();
             car.updatecar(keyHandler);
             carBot.updatebot();
@@ -68,31 +74,34 @@ public class DrawAndUpdate extends JPanel {
 
             }
 
-        }else if (!background.lifes[0] && !keyHandler.escapePressed) {
-            pauseFlag=false;
+        }else if (!background.lifes[0] && !pauseFlag && !menuFlag) {
+
             quiz.updateQuiz(mouseMotionHandler);
             quiz.drawNewQuestion();
             quiz.nextquest(flag);
             flag=false;
-            if(quiz.checkAnswer(mouseHandler)){
+            if(quiz.checkAnswer(mouseHandler)){// dobra odpowiedź na quiz
                 background.lifes[0]=true;
                 mouseHandler.position=-1;
                 flag=true;
                 car.carDeafult();
                 carBot.carBotDeafult();
 
+
             }
-            else{
+            else if(mouseHandler.position!=-1){// zła odpowiedź na quiz
 
                 Arrays.fill(background.lifes, true);
                 mouseHandler.position=-1;
                 flag=true;
                 car.carDeafult();
                 carBot.carBotDeafult();
+                background.score=0;
+                numberLife =2;
             }
         }
-        else pauseFlag=true;
 
-        //System.out.println("update");
+
+
     }
 }

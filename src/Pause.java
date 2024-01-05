@@ -11,5 +11,8 @@ public class Pause {
         g2d.drawString("Pauza",500,500);
     }
 
+   // public boolean checkPause(KeyHandler keyHandler){
+    //    return
+    //}
 
 }
