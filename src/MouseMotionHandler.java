@@ -1,23 +1,30 @@
-
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * Klasa przechwytująca poruszanie się myszki
+ * @author Miłosz Cienki
+ */
 public class MouseMotionHandler implements MouseMotionListener {
-    int x,y;
-    int position=-1;
-    int wchichWindow=0;
-    int[] high={0,0,0,0,0,0,0,0};// indeksy 0,1,2,3 odpowiedzi w quize ; indeksy 4,5,6,7 wybory w menu
-    int[] width={0,0,0,0,0,0,0,0};
+    int x,y;//pozycja myszki
+    int[] high={0,0,0,0,0,0,0,0};// tablica wysokości Stringów indeksy 0,1,2,3 odpowiedzi w quize ; indeksy 4,5,6,7 wybory w menu
+    int[] width={0,0,0,0,0,0,0,0};// tablica szerokości Stringów indeksy 0,1,2,3 odpowiedzi w quize ; indeksy 4,5,6,7 wybory w menu
+    int wchichWindow=0;// jeśli zmienna jest równa 1 odpalony jest quzi, jeśli 2 menu
+    int position=-1;// jaka kordynaty pokrywają się z myszką
     @Override
     public void mouseDragged(MouseEvent e) {
 
     }
 
+    /**
+     * Obsługa zdarzenia gdy myszka się przemieszcza, sprawdzenie jej pozycji i porównanie z rządanymi jeśli się pokrywają przypisanie odpowiedniej wartości do zmiennej position
+     * @param e the event to be processed
+     */
     @Override
     public void mouseMoved(MouseEvent e) {
         x=e.getX();
         y=e.getY();
-        //System.out.println("X: " +x+" Y: "+y);
+
         if (wchichWindow == 1) {
             if (x >= 640 - width[0] / 2 && x <= 640 + width[0] / 2 && y >= 325 && y <= 325 + high[0]) position = 0;
             else if (x >= 640 - width[1] / 2 && x <= 640 + width[1] / 2 && y >= 395 && y <= 395 + high[1]) position = 1;

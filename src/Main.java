@@ -1,4 +1,7 @@
-import javax.swing.*;
+/**
+ * Klasa główna
+ * @author Miłosz Cienki
+ */
 
 public class Main  {
 

@@ -1,6 +1,10 @@
-
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Klasa formująca kolizję w grze
+ * @author Miłosz Cienki
+ */
 
 public class CollisionDetector {
     // Tworzymy listę obiektów gry
@@ -20,6 +24,11 @@ public class CollisionDetector {
 
 
         }
+
+    /**
+     * Metoda sprawdzająca czy nie nastąpiła kolizja między graczem a innym obiektem
+     * @return zwraca true jeśli nastąpiła
+     */
     public boolean checkCollision(){
         // Sprawdzamy kolizje między wszystkimi obiektami
         for (int i = 0; i < gameObjects.size(); i++) {
@@ -32,9 +41,25 @@ public class CollisionDetector {
         }
         return false;
     }
+
+    /**
+     * Metoda odpowiadająca za aktualizowanie aktualnych współrzędnych gracza
+     * @param x przekazywanie pozycji na osi x
+     * @param y przekazywanie pozycji na osi y
+     * @param width przekazywanie szerokości pojazdu
+     * @param height przekazywanie wysokości pojazdu
+     */
         public void updateCarPosition(int x,int y,int width,int height){
         car.setCords( x, y, width,height);
         }
+
+    /**
+     * Metoda odpowiadająca za aktualizowanie aktualnych współrzędnych Bota
+     * @param x przekazywanie pozycji na osi x
+     * @param y przekazywanie pozycji na osi y
+     * @param width przekazywanie szerokości pojazdu
+     * @param height przekazywanie wysokości pojazdu
+     */
     public void updateBotPosition(int x,int y,int width,int height){
         gameObjects.get(2).setCords( x, y, width,height);
     }

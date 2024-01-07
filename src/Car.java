@@ -2,8 +2,11 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Objects;
-import javax.swing.*;
+
+/**
+ * Klasa formująca pojazd gracza
+ * @author Miłosz Cienki
+ */
 
 public class Car {
     public BufferedImage carpic;
@@ -31,13 +34,13 @@ public class Car {
             if(y>0)y-=speed;
         }
         if(keyHandler.downPressed){
-            if(y<768)y+=speed;
+            if(y<728)y+=speed;
         }
         if(keyHandler.leftPressed){
             if(x>0)x-=speed;
         }
         if(keyHandler.rightPressed){
-            if(x<1024)x+=speed;
+            if(x<1163)x+=speed;
         }
     }
 
