@@ -23,7 +23,7 @@ public class Car {
 
     public void paintcar(Graphics2D g2d) {
 
-        g2d.drawImage(carpic, x, y,100,256, null);
+        g2d.drawImage(carpic, x, y,130,334, null);
 
 
     }

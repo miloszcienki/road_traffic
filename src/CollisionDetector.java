@@ -19,8 +19,8 @@ public class CollisionDetector {
         // Dodajemy przykładowe obiekty do listy
         gameObjects.add(new GameObject(0,0,205,1024));//lewy pas zieleni
         gameObjects.add(new GameObject(1075,0,205,1024));//prawy pas zieleni
-        gameObjects.add(new GameObject(0,0,100,256));//bot
-        car=new GameObject(512, 512, 100, 256);//samochód
+        gameObjects.add(new GameObject(0,0,130,334));//bot
+        car=new GameObject(512, 512, 130,334);//samochód
 
 
         }

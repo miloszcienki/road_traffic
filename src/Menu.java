@@ -18,7 +18,7 @@ public class Menu {
 
     /**
      * Metoda odpowiadająca za wyświetlenie menu
-     * @param g2d obiekt klasy Graphics2D odpowiadającej za rysywanie
+     * @param g2d da
      */
     public void paintMenu(Graphics2D g2d){
 
@@ -79,8 +79,8 @@ public class Menu {
         g2d.drawString("- Aby nie stracić żyć należy unikac nadjężdzających pojazdów",0,200+2*fontMetrics.getHeight());
         g2d.drawString("- Wjechanie na trawnik również odejmuje życia",0,200+3*fontMetrics.getHeight());
         g2d.drawString("- Jeśli stracimy wszystkie życia za każdym razem dostajemy dodatkową szanse,",0,200+4*fontMetrics.getHeight());
-        g2d.drawString(" jeśli poprawnie odpowiemy na pytanie dostaniemy dodatkowe życie",0,200+5*fontMetrics.getHeight());
-        g2d.drawString(" - Powodzenia!",0,200+6*fontMetrics.getHeight());
+        g2d.drawString(" jeśli poprawnie odpowiemy na pytanie (jedno dodatkowe życie)",0,200+5*fontMetrics.getHeight());
+        g2d.drawString(" - Aby włączyć pauze wciśnij 'P'",0,200+6*fontMetrics.getHeight());
 
 
     }

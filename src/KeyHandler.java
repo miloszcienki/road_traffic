@@ -1,6 +1,9 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+/**
+ * Klasa przechwytująca kliknięć klawiatury, impementująca KeyListener
+ * @author Miłosz Cienki
+ */
 public class KeyHandler implements KeyListener {
 
     public boolean upPressed, downPressed, leftPressed, rightPressed, escapePressed, pPressed,enterPressed;
@@ -9,6 +12,10 @@ public class KeyHandler implements KeyListener {
 
     }
 
+    /**
+     * Obsułga zdarzeń klawiatury, gdy przycisk zostaje kliknięty
+     * @param e the event to be processed
+     */
     @Override
     public void keyPressed(KeyEvent e) {
 
@@ -41,6 +48,10 @@ public class KeyHandler implements KeyListener {
         }
     }
 
+    /**
+     * Obsługa zdarzeń klawiatury a dokładniej kiedy przycisk zostaje zwolniony
+     * @param e the event to be processed
+     */
     @Override
     public void keyReleased(KeyEvent e) {
 

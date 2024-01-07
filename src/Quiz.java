@@ -74,7 +74,7 @@ public class Quiz {
         g2d.setColor(Color.RED);
         g2d.drawString("Twoja odpowiedź jest błędna!",640-fontMetrics.stringWidth("Twoja odpowiedź jest błędna!")/2,300);
         g2d.setColor(Color.WHITE);
-        g2d.drawString("Poprawna odpowiedź:",640-fontMetrics.stringWidth("Poprawna odpowiedź:")/2,400);
+        g2d.drawString("Poprawna odpowiedź to:",640-fontMetrics.stringWidth("Poprawna odpowiedź to:")/2,400);
         g2d.setColor(Color.GREEN);
         for(int i=1;i<=4;i++) {
 

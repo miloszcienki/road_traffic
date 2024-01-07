@@ -38,11 +38,17 @@ public class DrawAndUpdate extends JPanel {
 
     public DrawAndUpdate(){
 
-        this.requestFocusInWindow();
+        this.requestFocusInWindow();// Ustawienie fokusu na oknie, aby mogło reagować na zdarzenia klawiatury
+
+        // Ustawienie rozmiarów okna
         this.setSize(1280, 1024);
-        this.setLocation(0,0);
-        this.setDoubleBuffered(true);
+        this.setLocation(0, 0);
+        this.setDoubleBuffered(true); // Włączenie podwójnego buforowania dla płynniejszego rysowania
+
+        // Ustawienie, dzięki któremu okno jest zdolne do obsługi zdarzeń związanych z klawiaturą
         this.setFocusable(true);
+
+        // Dodanie obsługi zdarzeń związanych z ruchem myszy i kliknięciami myszy
         this.addMouseMotionListener(mouseMotionHandler);
         this.addMouseListener(mouseHandler);
         background = new Background();
@@ -57,7 +63,7 @@ public class DrawAndUpdate extends JPanel {
 
             clip = AudioSystem.getClip();
             clip.open(audioStream);
-            //clip.loop(Clip.LOOP_CONTINUOUSLY);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
 
         }catch (Exception e) {
 
@@ -101,7 +107,7 @@ public class DrawAndUpdate extends JPanel {
         }
         if(background.lifes[0] && !pauseFlag && !menuFlag && !menu.howPlay && !drawGoodAnswer && !infoGoodAnswer) {// aktualizowanie gry
 
-           // clip.loop(Clip.LOOP_CONTINUOUSLY);
+           clip.loop(Clip.LOOP_CONTINUOUSLY);
             background.move_road_lanes();
             car.updatecar(keyHandler);
             carBot.updatebot();
@@ -185,6 +191,7 @@ public class DrawAndUpdate extends JPanel {
         }
         else if(drawGoodAnswer && keyHandler.enterPressed) drawGoodAnswer = false;//Wyjście z wyświetlania poprawnej odpowiedź po wybraniu błędnej
         else if(infoGoodAnswer && keyHandler.enterPressed) infoGoodAnswer = false;//Wyjście z wyświetlania komnukiatu, że udzielona odpowiedź jest poprawna
+        else if(pauseFlag)clip.stop();//jeśli pauza jest włączona zatrzymaj dźwiek
 
 
 

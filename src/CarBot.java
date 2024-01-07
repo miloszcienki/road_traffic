@@ -15,7 +15,7 @@ public class CarBot {
     public int speed=4; //pierwotna pozycja samochodu
     private int number_car=0;
     public int[] x={302,586,886};
-    public int[] y={-256,-256,-256};
+    public int[] y={-350,-350,-350};
     private Random rand = new Random();
 
     public CarBot(){
@@ -27,7 +27,7 @@ public class CarBot {
 
 
     public void paintbot(Graphics2D g2d) {
-        for(int i=0;i<=2;i++) g2d.drawImage(carpic, x[i], y[i],100,256, null);
+        for(int i=0;i<=2;i++) g2d.drawImage(carpic, x[i], y[i],130,334, null);
 
 
     }
@@ -35,7 +35,7 @@ public class CarBot {
     public void updatebot(){
         if(y[number_car]<1300) y[number_car]+=speed;
         else {
-            y[number_car] = -256;
+            y[number_car] = -350;
             number_car = rand.nextInt(3);
         }
 
@@ -52,6 +52,6 @@ public class CarBot {
         x[0]=302;
         x[1]=586;
         x[2]=886;
-        Arrays.fill(y, -256);
+        Arrays.fill(y, -350);
     }
 }

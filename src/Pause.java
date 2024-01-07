@@ -20,6 +20,6 @@ public class Pause {
         czcionka = new Font("Courier New", Font.PLAIN, 32);
         g2d.setFont(czcionka);
         fontMetrics = g2d.getFontMetrics();
-        g2d.drawString("Aby wyjść z pauzy wciśnij P",640-fontMetrics.stringWidth("Aby wyjść z pauzy wciśnij P")/2,500);
+        g2d.drawString("Aby wyjść z pauzy wciśnij 'P'",640-fontMetrics.stringWidth("Aby wyjść z pauzy wciśnij 'P'")/2,500);
     }
 }
